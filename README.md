@@ -1,5 +1,5 @@
 # AC3-trabalho2 - Algoritmo de Tomasulo
-Projeto de AC3 do algoritmo de Tomasulo para sistemas superescalares de Fernando Valle Gusmão, Bruno Hermeto Magalhães e Enzo de Melo Bolognani
+Projeto de AC3 do algoritmo de Tomasulo para sistemas superescalares de Fernando Valle Gusmão, Bruno Hermeto Guimarães e Enzo de Melo Bolognani
 
 Executa-se por base do arquivo instrucoes.txt.
 
