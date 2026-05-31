@@ -29,13 +29,29 @@ vector<Instrucao> lerArquivoInstrucoes(const string& nomeArquivo) {
         if (linha.empty()) continue; 
         stringstream ss(linha);
         string op, rdStr, rsStr, rtStr;
-        ss >> op >> rdStr >> rsStr >> rtStr;
+        ss >> op;
         // Faz o parse
         Instrucao inst;
         inst.op = op;
-        inst.rd = converteRegistrador(rdStr);
-        inst.rs = converteRegistrador(rsStr);
-        inst.rt = converteRegistrador(rtStr);
+        // Se for instrução de acesso a memória (LW ou SW)
+        if (op == "LW" || op == "SW") {
+            string rdStr, memoriaStr;
+            ss >> rdStr >> memoriaStr;
+            inst.rd = converteRegistrador(rdStr);
+            size_t posAbrePar = memoriaStr.find('(');
+            size_t posFechaPar = memoriaStr.find(')');
+            string rsStr = memoriaStr.substr(posAbrePar + 1, posFechaPar - posAbrePar - 1);
+            inst.rs = converteRegistrador(rsStr);
+            inst.rt = 0;
+        } 
+        // Se for instrução aritmética (ADD, SUB, MUL ou DIV)
+        else {
+            string rdStr, rsStr, rtStr;
+            ss >> rdStr >> rsStr >> rtStr;
+            inst.rd = converteRegistrador(rdStr);
+            inst.rs = converteRegistrador(rsStr);
+            inst.rt = converteRegistrador(rtStr);
+        }
         // Inicializa os ciclos com 0
         inst.cicloIssue = 0;
         inst.cicloExecuteInicio = 0;
