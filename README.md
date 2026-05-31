@@ -5,7 +5,53 @@ Executa-se por base do arquivo instrucoes.txt.
 
 Código se encontra em src, results contém a saida com o arquivo teste realizado
 
-Classes
+# Classes
+## Instrucao
+Classe usada para instruções, contendo o tipo de operação, registradores usados e dados sobre o ciclo de ínicio/fim das etapas da simulação.
+
+## EstacaoReserva
+Classe utilizada para as estações de reserva, contendo o tipo de operação feita, valores dos operandos, ID da estação que vai produzir Vj e Vk, resultado da operação e quantidade de ciclos restantes.
+
+## Registrador
+Classe utilizada para os registradores, contendo o valor contido e ID da estação de reserva que vai escrever.
+
+## BancoRegistradores
+Classe utilizada como banco de registradores, contendo um vetor de 32 registradores.
+
+# Implementação do Algoritmo
+## `TomasuloEstruturas.hpp`
+Contém todas as classes utilizadas no algoritmo.
+
+## `Leitura.cpp`
+Contém a função para fazer a leitura e o parse do arquivo `instrucoes.txt`, já colocando as instruções na fila.
+
+## `Tomasulo.cpp`
+Contém as funções das três etapas do algoritmo de Tomasulo: `etapaIssue()`, `etapaExecute()` e `etapaWriteBack()`.
+
+## `Mostrar.cpp`
+Contém a função que imprime no terminal e escreve no arquivo `log.txt`, as tabelas de instruções, banco de registradores e estações de reserva a cada ciclo.
+
+# Operações suportadas
+- LOAD (LW)
+- STORE (SW)
+- ADD
+- SUB
+- MUL
+- DIV
+
+# Arquitetura
+- 32 registradores (Cada um inicia com um valor aleatória de 0 a 100)
+- Estações de reserva configuráveis (ADD/SUB: 3 Estações, MUL/DIV: 2 Estações, LOAD: 2 Estações e STORE: 2 Estações)
+- Ciclos por instrução:
+    - SW: 1 Ciclo
+    - ADD/SUB/LW: 2 Ciclos
+    - MUL: 10 Ciclos
+    - DIV: 40 Ciclos
+
+# Como usar
+1. Compilar usando `g++ main.cpp tomasulo.cpp mostrar.cpp leitura.cpp -o simulador`
+2. Executar `./simulador`
+  
 
 struct Instrucao {
     string op;          // Operação: "ADD", "SUB", "MUL", "DIV", "LW", "SW"
