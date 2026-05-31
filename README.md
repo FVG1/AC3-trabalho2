@@ -3,6 +3,8 @@ Projeto de AC3 do algoritmo de Tomasulo para sistemas superescalares de Fernando
 
 Executa-se por base do arquivo instrucoes.txt.
 
+Código se encontra em src, results contém a saida com o arquivo teste realizado
+
 Classes
 
 struct Instrucao {
