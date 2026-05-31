@@ -56,6 +56,9 @@ int main() {
         // Mostra os dados desse ciclo de clock
         exibirEstadoDoSimulador(clock, cout, historico, estacoes, banco);
         exibirEstadoDoSimulador(clock, arquivoLog, historico, estacoes, banco);
+        // DESCOMENTE SE QUISER AVANÇAR CICLO POR CICLO MANUALMENTE
+        cout << "Pressione ENTER para avancar para o proximo ciclo de clock!";
+        cin.get();
         clock++;
     }
     arquivoLog.close();
