@@ -68,7 +68,8 @@ struct BancoRegistradores {
 };
 
 ## Exemplo de Execução
-### Entrada no arquivo instrucoes.txt
+### Entrada (`instrucoes.txt`)
+```text
 ADD R1 R2 R3
 MUL R4 R1 R2
 SUB R5 R4 R1
@@ -76,7 +77,9 @@ DIV R6 R8 R5
 LW R9 0(R10)
 ADD R11 R9 R12
 SW R11 4(R10)
+```
 ### Saída representando um ciclo da execução
+```text
 ====================================================================================
  STATUS DO PROCESSADOR - CICLO: 1
 ====================================================================================
@@ -117,3 +120,4 @@ R16      R17      R18      R19      R20      R21      R22      R23
 R24      R25      R26      R27      R28      R29      R30      R31      
 1        34       49       68       1        51       83       70       
 -----------------------------------------------------------------------------
+```
