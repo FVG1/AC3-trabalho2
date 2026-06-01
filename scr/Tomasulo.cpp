@@ -115,12 +115,10 @@ void etapaExecute(int cicloAtual, vector<EstacaoReserva>& estacoes, vector<Instr
                             estacoes[i].resultado = 0; 
                         }
                     }
-                    else if (estacoes[i].op == "LW") {
-                        // Em simuladores simples, simulamos o cálculo do endereço ou valor direto
+                    else if (estacoes[i].op == "LW") {
                         estacoes[i].resultado = estacoes[i].vj + estacoes[i].vk; 
                     }
-                    else if (estacoes[i].op == "SW") {
-                        // Store não escreve no banco de registradores depois, mas pode calcular o endereço
+                    else if (estacoes[i].op == "SW") {
                         estacoes[i].resultado = estacoes[i].vj + estacoes[i].vk;
                     }
                 }
